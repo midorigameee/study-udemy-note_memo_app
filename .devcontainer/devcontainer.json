@@ -1,0 +1,32 @@
+{
+    "name": "study-udemy-react-note_memo",
+    "dockerFile": "Dockerfile",
+    "forwardPorts": [5000],
+    // "mounts": [
+    //     {
+    //     "source": "python12_venv",
+    //     "target": "${containerWorkspaceFolder}/python12_venv"
+    //     }
+    // ],
+    "customizations": {
+        "vscode": {
+            // 参考:https://qiita.com/nube266/items/3434afe6da4d795ac82e
+            "extensions": [
+                // Web
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "stylelint.vscode-stylelint",
+                "ritwickdey.LiveServer",
+                "dsznajder.es7-react-js-snippets",
+                "formulahendry.auto-rename-tag",
+                "formulahendry.auto-close-tag",
+                // General
+                "yzhang.markdown-all-in-one"
+            ],
+                "settings": {
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode"
+            }
+        }
+    }
+}
