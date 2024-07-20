@@ -38,6 +38,7 @@ RUN echo 'export PS1="\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \[\033[01;31m\]\$(_
 ### Gitの設定
 RUN git config --global --add safe.directory /workspace
 RUN git config --global core.quotepath false
+RUN git config --global push.default current
 
 ### node_modulesを予め用意しておく設定
 WORKDIR /workspace/note-app-with-react
