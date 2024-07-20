@@ -1,12 +1,14 @@
 FROM node:22.4.1-bookworm
 
 ### 各種必要なパッケージとエイリアスの設定
-RUN apt-get update && apt-get install git vim curl -y && apt-get clean
+RUN apt-get update \
+    && apt-get install -y git vim curl \
+    && apt-get clean
 RUN echo "# Alias setting" >> ~/.bashrc
 RUN echo "alias la='ls -a'" >> ~/.bashrc
 RUN echo "alias ll='ls -l'" >> ~/.bashrc
 
-### bashで日本語を使う設定
+### bashで日本語を使う設定(https://qiita.com/yokoto/items/fc2ecdc0a7a5e14bdcaa)
 RUN apt-get update \
     && apt-get install -y locales
 RUN locale-gen ja_JP.UTF-8
