@@ -13,7 +13,7 @@ function App() {
     const newNote = {
       id: uuid(),
       title: "new note",
-      content: "new note content",
+      content: "",
       modDate: Date.now(),
     };
 
