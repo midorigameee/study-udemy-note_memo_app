@@ -1,21 +1,30 @@
 import React from "react";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ onAddNote, notes }) => {
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
-        <h1>note</h1>
-        <button>add</button>
+        <h1>Note</h1>
+        <button onClick={onAddNote}>Add</button>
       </div>
       <div className="app-sidebar-notes">
-        <div className="app-sidebar-note"></div>
-        <div className="sidebar-note-title">
-          <strong>title</strong>
-          <button>delete</button>
-        </div>
-        <p>note contents</p>
-        <small>last modified: MM/dd</small>
+        {notes.map((note) => (
+          <div className="app-sidebar-note" key={note.id}>
+            <div className="sidebar-note-title">
+              <strong>{note.title}</strong>
+              <button>Delete</button>
+            </div>
+            <p>{note.content}</p>
+            <small>
+              Last modified:{" "}
+              {new Date(note.modDate).toLocaleDateString("ja-JP", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </small>
+          </div>
+        ))}
       </div>
     </div>
   );
