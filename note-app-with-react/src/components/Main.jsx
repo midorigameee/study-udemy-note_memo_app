@@ -3,6 +3,8 @@ import "./Main.css";
 
 const Main = ({ activeNote, onUpdateNote }) => {
   const onEditNote = (key, value) => {
+    console.log("[onEditNote] activeNote:");
+    console.log(activeNote);
     onUpdateNote({
       ...activeNote,
       [key]: value, // keyが動的に変わる
@@ -14,6 +16,10 @@ const Main = ({ activeNote, onUpdateNote }) => {
     return <div className="no-active-note">Note is not selected.</div>;
   }
 
+  /*
+  文字打ち込むたびにonChangeが発火する。つまり、onEditNoteが実行される。
+  onEditNoteの中でonUpdateNoteを実行している。
+  */
   return (
     <div className="app-main">
       <div className="app-main-note-edit">
