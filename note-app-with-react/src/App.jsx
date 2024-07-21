@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid"; // react-uuidの代わり（https://qiita.com
 
 function App() {
   const [notes, setNotes] = useState([]);
-  const [activateNote, setActiveNote] = useState(false);
+  const [activeNote, setActiveNote] = useState(false);
 
   const onAddNote = () => {
     console.log("Add new note.");
@@ -27,16 +27,33 @@ function App() {
     setNotes(filterNotes);
   };
 
+  const getActiveNote = () => {
+    return notes.find((note) => note.id === activeNote);
+  };
+
+  const onUpdateNote = (updatedNote) => {
+    // 修正された新しいノートの配列を返す
+    const updatedNotesArray = notes.map((note) => {
+      if (note.id === updatedNote.id) {
+        return updatedNote;
+      } else {
+        return note;
+      }
+    });
+
+    setNotes(updatedNotesArray);
+  };
+
   return (
     <div className="App">
       <Sidebar
         onAddNote={onAddNote}
         notes={notes}
         onDeleteNote={onDeleteNote}
-        activeNote={activateNote}
+        activeNote={activeNote}
         setActiveNote={setActiveNote}
       />
-      <Main />
+      <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
     </div>
   );
 }
