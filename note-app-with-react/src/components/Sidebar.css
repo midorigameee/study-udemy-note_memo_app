@@ -50,3 +50,7 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.app-sidebar-note.active {
+  background-color: #ffd9d9;
+}

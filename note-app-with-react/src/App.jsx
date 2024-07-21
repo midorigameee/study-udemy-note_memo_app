@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid"; // react-uuidの代わり（https://qiita.com
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [activateNote, setActiveNote] = useState(false);
 
   const onAddNote = () => {
     console.log("Add new note.");
@@ -32,6 +33,8 @@ function App() {
         onAddNote={onAddNote}
         notes={notes}
         onDeleteNote={onDeleteNote}
+        activeNote={activateNote}
+        setActiveNote={setActiveNote}
       />
       <Main />
     </div>
