@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
-import uuid from "react-uuid";
+import { v4 as uuid } from "uuid"; // react-uuidの代わり（https://qiita.com/wsigma21/items/1a9a3ccaa05bc525fe48）
 
 function App() {
   const [notes, setNotes] = useState([]);
