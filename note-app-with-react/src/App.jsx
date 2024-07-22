@@ -15,6 +15,11 @@ function App() {
     localStorage.setItem("Notes", JSON.stringify(notes));
   }, [notes]);
 
+  useEffect(() => {
+    // リロード時に一番上のノートが選択されている状態にする
+    setActiveNote(notes[0].id);
+  }, []);
+
   const onAddNote = () => {
     console.log("Add new note.");
     const newNote = {
