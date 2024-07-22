@@ -1,3 +1,15 @@
+# アプリの動き
+
+## コンポーネント構成
+
+- App.jsx
+  - Sidebar.jsx
+  - Main.jsx
+
+## Hooks の動き
+
+ノートのデータを格納する配列の state を App 内に定義して、App から Sidebar や Main に props として渡している。
+
 # 学び
 
 ## filter 関数

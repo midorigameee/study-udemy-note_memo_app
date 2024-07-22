@@ -6,8 +6,8 @@ import { v4 as uuid } from "uuid"; // react-uuidの代わり（https://qiita.com
 
 function App() {
   const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("Notes")) || []
-  ); // ||→または
+    JSON.parse(localStorage.getItem("Notes")) || [] // ローカルストレージにデータがなければ空の配列を初期値にする（||→または）
+  );
   const [activeNote, setActiveNote] = useState(false);
 
   useEffect(() => {
