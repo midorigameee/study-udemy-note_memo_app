@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import { v4 as uuid } from "uuid"; // react-uuidの代わり（https://qiita.com/wsigma21/items/1a9a3ccaa05bc525fe48）
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("Notes")) || []
+  ); // ||→または
   const [activeNote, setActiveNote] = useState(false);
+
+  useEffect(() => {
+    // ローカルストレージに保存
+    localStorage.setItem("Notes", JSON.stringify(notes));
+  }, [notes]);
 
   const onAddNote = () => {
     console.log("Add new note.");
